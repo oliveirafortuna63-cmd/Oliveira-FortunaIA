@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oliveira Jorge IA</title>
+<style>
+* {box-sizing:border-box}
+body {
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#101827;
+ color:white;
+}
+header {
+ background:#17243a;
+ padding:20px;
+ text-align:center;
+ border-bottom:1px solid #334155;
+}
+header h1 {color:#38bdf8;margin:5px}
+main {max-width:850px;margin:30px auto;padding:15px}
+h2 {color:#38bdf8}
+.menu {
+ display:flex;flex-wrap:wrap;gap:10px;
+ justify-content:center;margin:25px 0;
+}
+button {
+ background:#087eb5;color:white;border:0;
+ padding:13px 18px;border-radius:9px;
+ cursor:pointer;font-size:15px;
+}
+button:hover {background:#075985}
+.panel {
+ background:#1e293b;padding:20px;
+ border-radius:12px;margin:18px 0;
+}
+input,textarea {
+ width:100%;padding:14px;margin:10px 0;
+ border:1px solid #475569;border-radius:8px;
+ background:#0f172a;color:white;
+}
+#resultado {
+ white-space:pre-wrap;line-height:1.6;
+}
+footer {text-align:center;padding:25px;color:#94a3b8}
+</style>
+</head>
+<body>
+
+<header>
+<h1>OLIVEIRA JORGE IA</h1>
+<p>A inteligência artificial ao teu alcance</p>
+</header>
+
+<main>
+<div class="menu">
+<button onclick="mostrar('pesquisa')">🔎 Pesquisa</button>
+<button onclick="mostrar('imagem')">🖼️ Imagens</button>
+<button onclick="mostrar('video')">🎬 Vídeos</button>
+<button onclick="mostrar('chat')">🤖 Conversar</button>
+</div>
+
+<section class="panel" id="pesquisa">
+<h2>Pesquisa inteligente</h2>
+<input id="pergunta" placeholder="O que desejas pesquisar?">
+<button onclick="pesquisar()">Pesquisar</button>
+</section>
+
+<section class="panel" id="imagem" hidden>
+<h2>Criação de imagens</h2>
+<p>Em breve: criação de imagens com inteligência artificial.</p>
+<input type="text" placeholder="Descreve a imagem que desejas criar">
+<button onclick="alert('A criação de imagens será ligada numa próxima versão.')">Criar imagem</button>
+</section>
+
+<section class="panel" id="video" hidden>
+<h2>Criação de vídeos</h2>
+<p>Em breve: ferramentas de criação de vídeos.</p>
+<input placeholder="Descreve o vídeo que imaginas">
+<button onclick="alert('A criação de vídeos será ligada numa próxima versão.')">Criar vídeo</button>
+</section>
+
+<section class="panel" id="chat" hidden>
+<h2>Conversa com IA</h2>
+<textarea id="mensagem" placeholder="Escreve a tua mensagem..." rows="4"></textarea>
+<button onclick="conversar()">Enviar mensagem</button>
+</section>
+
+<section class="panel">
+<h2>Resultado</h2>
+<div id="resultado">Bem-vindo ao Oliveira Jorge IA!</div>
+</section>
+</main>
+
+<footer>
+© 2026 Oliveira Jorge IA | Desenvolvido por Oliveira Jorge
+</footer>
+
+<script>
+function mostrar(id) {
+ document.querySelectorAll('main section').forEach(s=>s.hidden=true);
+ document.getElementById(id).hidden=false;
+ document.getElementById('resultado').textContent='Área selecionada: '+id;
+}
+function pesquisar() {
+ let p=document.getElementById('pergunta').value;
+ document.getElementById('resultado').textContent=
+ p ? 'Pesquisa recebida: '+p+'\nA pesquisa online será ligada numa próxima versão.' : 'Escreve algo para pesquisar.';
+}
+function conversar() {
+ let m=document.getElementById('mensagem').value;
+ document.getElementById('resultado').textContent=
+ m ? 'Mensagem recebida: '+m+'\nO assistente IA será ligado numa próxima versão.' : 'Escreve uma mensagem.';
+}
+</script>
+</body>
+</html>
